@@ -1,10 +1,10 @@
 # TEAM 10 - Slap
 # Phase 1 Roles:
-* Barbara Monteiro Carvalho: PM
-* Titus Whang: Backend Developer
-* Brandon Arriaga: Admin App Developer 
-* Junan Mei: Mobile Developer
-* Dan Warnick: Web Developer
+* Barbara Monteiro Carvalho, bam426@lehigh.edu: PM 
+* Titus Whang, juw225@lehigh.edu: Backend Developer 
+* Brandon Arriaga, baa325@lehigh.edu: Admin App Developer 
+* Junan Mei, jum324@lehigh.edu: Mobile Developer
+* Dan Warnickl, dsw225@lehigh.edu: Web Developer
 
 # Git Repository Link: 
 * git clone git@bitbucket.org:barbara-s-workspace/cse216-2023fa-team-10.git
