@@ -1,7 +1,5 @@
-package edu.lehigh.cse216.juw225.backend;
+package edu.lehigh.cse216.juw225.admin;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Database {
     /**
@@ -54,57 +51,44 @@ public class Database {
     private PreparedStatement mDropTable;
 
     /**
+     * RowData is like a struct in C: we use it to hold data, and we allow 
+     * direct access to its fields.  In the context of this Database, RowData 
+     * represents the data we'd see in a row.
+     * 
+     * We make RowData a static class of Database because we don't really want
+     * to encourage users to think of RowData as being anything other than an
+     * abstract representation of a row of the database.  RowData and the 
+     * Database are tightly coupled: if one changes, the other should too.
+     */
+    public static class RowData {
+        /**
+         * The ID of this row of the database
+         */
+        int mId;
+        /**
+         * The subject stored in this row
+         */
+        String mSubject;
+        /**
+         * The message stored in this row
+         */
+        String mMessage;
+
+        /**
+         * Construct a RowData object by providing values for its fields
+         */
+        public RowData(int id, String subject, String message) {
+            mId = id;
+            mSubject = subject;
+            mMessage = message;
+        }
+    }
+
+    /**
      * The Database constructor is private: we only create Database objects 
      * through the getDatabase() method.
      */
     private Database() {
-    }
-
-    private static final String DEFAULT_PORT_DB = "5432";
-
-    /**
-    * Get a fully-configured connection to the database, or exit immediately
-    * Uses the Postgres configuration from environment variables
-    * 
-    * NB: now when we shutdown the server, we no longer lose all data
-    * 
-    * @return null on failure, otherwise configured database object
-    */
-    public static Database getDatabaseConnection(){
-        if( System.getenv("DATABASE_URL") != null ){
-            return Database.getDatabase(System.getenv("DATABASE_URL"), DEFAULT_PORT_DB);
-        }
-
-        Map<String, String> env = System.getenv();
-        String ip = env.get("POSTGRES_IP");
-        String port = env.get("POSTGRES_PORT");
-        String user = env.get("POSTGRES_USER");
-        String pass = env.get("POSTGRES_PASS");
-        return Database.getDatabase(ip, port, "", user, pass);
-    } 
-
-    /**
-    * Get a fully-configured connection to the database
-    * 
-    * @param db_url The url to the database
-    * @param port_default port to use if absent in db_url
-    * 
-    * @return A Database object, or null if we cannot connect properly
-    */
-    static Database getDatabase(String db_url, String port_default) {
-        try {
-            URI dbUri = new URI(db_url);
-            String username = dbUri.getUserInfo().split(":")[0];
-            String password = dbUri.getUserInfo().split(":")[1];
-            String host = dbUri.getHost();
-            String path = dbUri.getPath();
-            String port = dbUri.getPort() == -1 ? port_default : Integer.toString(dbUri.getPort());
-
-            return getDatabase(host, port, path, username, password);
-        } catch (URISyntaxException s) {
-            System.out.println("URI Syntax Error");
-            return null;
-        }
     }
 
     /**
@@ -136,52 +120,6 @@ public class Database {
             return null;
         }
 
-        db = db.createPreparedStatements(db);
-
-        return db;
-    }
-
-    /**
-    * Get a fully-configured connection to the database
-    * 
-    * @param host The IP address or hostname of the database server
-    * @param port The port on the database server to which connection requests
-    *             should be sent
-    * @param path The path to use, can be null
-    * @param user The user ID to use when connecting
-    * @param pass The password to use when connecting
-    * 
-    * @return A Database object, or null if we cannot connect properly
-    */
-    static Database getDatabase(String host, String port, String path, String user, String pass) {
-        if( path==null || "".equals(path) ){
-            path="/";
-        }
-
-        // Create an un-configured Database object
-        Database db = new Database();
-
-        // Give the Database object a connection, fail if we cannot get one
-        try {
-            String dbUrl = "jdbc:postgresql://" + host + ':' + port + path;
-            Connection conn = DriverManager.getConnection(dbUrl, user, pass);
-            if (conn == null) {
-                System.err.println("Error: DriverManager.getConnection() returned a null object");
-                return null;
-            }
-            db.mConnection = conn;
-        } catch (SQLException e) {
-            System.err.println("Error: DriverManager.getConnection() threw a SQLException");
-            e.printStackTrace();
-            return null;
-        }
-
-        db = db.createPreparedStatements(db);
-
-        return db;
-    } 
-
-    private Database createPreparedStatements(Database db) {
         // Attempt to create all of our prepared statements.  If any of these 
         // fail, the whole getDatabase() call should fail
         try {
@@ -262,12 +200,12 @@ public class Database {
      * 
      * @return All rows, as an ArrayList
      */
-    ArrayList<DataRow> selectAll() {
-        ArrayList<DataRow> res = new ArrayList<DataRow>();
+    ArrayList<RowData> selectAll() {
+        ArrayList<RowData> res = new ArrayList<RowData>();
         try {
             ResultSet rs = mSelectAll.executeQuery();
             while (rs.next()) {
-                res.add(new DataRow(rs.getInt("id"), rs.getString("subject"), null));
+                res.add(new RowData(rs.getInt("id"), rs.getString("subject"), null));
             }
             rs.close();
             return res;
@@ -284,13 +222,13 @@ public class Database {
      * 
      * @return The data for the requested row, or null if the ID was invalid
      */
-    DataRow selectOne(int id) {
-        DataRow res = null;
+    RowData selectOne(int id) {
+        RowData res = null;
         try {
             mSelectOne.setInt(1, id);
             ResultSet rs = mSelectOne.executeQuery();
             if (rs.next()) {
-                res = new DataRow(rs.getInt("id"), rs.getString("subject"), rs.getString("message"));
+                res = new RowData(rs.getInt("id"), rs.getString("subject"), rs.getString("message"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
