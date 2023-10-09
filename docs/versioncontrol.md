@@ -141,7 +141,6 @@ However, we believe that by meeting twice a week, and doing daily stand ups, we 
 The merge conflict when commiting and merging our individual tasks together. It is resolved and we believe that as long as we do not edit the same file at the same time, and work on our own branches and folders, we should not have any issues. 
 
 7. What might you suggest the team or the next PM "start", "stop", or "continue" doing in the next sprint?
-    <!-- PM: When editing this template for your submission, you may remove this guidance -->
     * Consider this an opportunity to run a mini [sprint retrospective](https://en.wikipedia.org/wiki/Scrum_(software_development))
       > A sprint retrospective is a separate meeting that allows team members to internally analyze strengths and weaknesses of the sprint, future areas of improvement, and continuous process improvement actions
     * An example of something you might "start" doing is including a retrospective at the end of each sprint, or checking in more frequently on slack, or respectfully checking in on expectations of eachother. 
