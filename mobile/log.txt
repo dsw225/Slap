@@ -1,0 +1,224 @@
+commit 17bdc5b40f1bf56825ce08768cdc74e9636aa1d6
+Merge: 90039f4 0212ef7
+Author: Brandon Arriaga <baa325@lehigh.edu>
+Date:   Mon Oct 9 02:20:35 2023 +0000
+
+    Merged in pre-master (pull request #17)
+    
+    edited readme files
+
+commit 0212ef7b0954bc7f9266920b58f2607afc218c4b
+Author: Brandon Arriaga <baa325@lehigh.edu>
+Date:   Sun Oct 8 22:19:35 2023 -0400
+
+    edited readme files
+
+commit 90039f4dfb6319ee23ebb629c917e770e8fc28eb
+Merge: 460c93a e0b0785
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Mon Oct 9 02:10:40 2023 +0000
+
+    Merged in pre-master (pull request #16)
+    
+    Pre master
+
+commit e0b078540c31ba987f9f658a09693f4c2f24d6d7
+Merge: 45a2f1e 1d8f754
+Author: Dan Warnick <dsw225@lehigh.edu>
+Date:   Mon Oct 9 02:08:59 2023 +0000
+
+    Merged in web (pull request #15)
+    
+    Updated README.md for designs boards
+
+commit 1d8f754323b20b4e4ce9244df1abdfb39515902d
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 22:08:09 2023 -0400
+
+    Fix README? x2
+
+commit 8a97e4f21497193f9b1aa5684592546c6f808565
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 22:07:09 2023 -0400
+
+    Fix README?
+
+commit 45a2f1e1c69c130a04a0767160c3f6119c24bd08
+Merge: e82729c db87a26
+Author: Brandon Arriaga <baa325@lehigh.edu>
+Date:   Mon Oct 9 02:02:09 2023 +0000
+
+    Merged in admin (pull request #10)
+    
+    Admin
+    
+    Approved-by: Titus Whang
+
+commit e82729ce32235afb733a06d69e63f3cf79846120
+Merge: 6321499 e1fe33e
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Mon Oct 9 02:00:58 2023 +0000
+
+    Merged in backend (pull request #12)
+    
+    Backend
+
+commit e1fe33ecaa8b53bd443feacd3746794c0ed1d341
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 21:57:06 2023 -0400
+
+    Added double spaces
+
+commit db87a267b184b205b66fc0b3df7da06b30880164
+Author: Brandon Arriaga <baa325@lehigh.edu>
+Date:   Sun Oct 8 21:43:08 2023 -0400
+
+    edited folder readme
+
+commit b7401bdabf810b8de41efab776474bdf8088470a
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:21:10 2023 -0400
+
+    Fixing README/ adding boards x2
+
+commit 84682aeb1c70d63ef782afc8e9c465ee6bf23497
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 21:17:04 2023 -0400
+
+    Swapped README.md contents
+
+commit c28e5602899f9fc2a0058f8824d311bd81f45712
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:16:50 2023 -0400
+
+    Fixing README/ adding boards
+
+commit 746fdc7aac9352dd46952bf394bb9b152ace495d
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:13:51 2023 -0400
+
+    Updated README.md for designs boards
+
+commit 8afa2023a1fbfe8fa46d0dfd6084fa2c7e29ae85
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:08:42 2023 -0400
+
+    Updated README.md for designs boards
+
+commit e0aeecbcadc9faf4c4c73ab0e959b705aed47d6c
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:53:50 2023 -0400
+
+    Swapped Backend descriptions
+
+commit b154c0d0817ed433afe86ca8188cdedc593417ca
+Author: Brandon Arriaga <baa325@lehigh.edu>
+Date:   Sun Oct 8 20:41:18 2023 -0400
+
+    entity diagram and user stories
+
+commit a3920982ed00e515abacb6bcf2e0055a0ba56a9b
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:31:16 2023 -0400
+
+    Added image of major components and routes
+
+commit 6321499c16855f5a0233e3eff9643edcb1140087
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:09:27 2023 -0400
+
+    Fully Merged
+
+commit b9f21006bd6028480f0a9052632c31a01d96f61c
+Merge: 2bb9399 c3791bc
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:07:35 2023 -0400
+
+    Merging web
+
+commit 2bb93997d808560da433c4cf3c4f3abed40373fd
+Merge: 4038b67 aa4dd8c
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:06:43 2023 -0400
+
+    Merging
+
+commit aa4dd8c8931c944a2db706655f24805a233f45f2
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:59:22 2023 -0400
+
+    Initial commit for mobile
+
+commit c3791bc6e5f39aebdb515927ed4f44b94e500139
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:55:48 2023 -0400
+
+    Initial commit for web
+
+commit 4038b67838f3c338998f1cf65349ad7966c23ddc
+Merge: 6b484d4 430b909
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:53:40 2023 -0400
+
+    Merged admin
+
+commit 430b9096eb79e86fe5f089592a46c0d9dd2a07f0
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:48:04 2023 -0400
+
+    Initial commit for admin
+
+commit 6b484d4882e6d55c980dfc4b0f77923f44342ee4
+Merge: 004b227 2a4b3f2
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:42:40 2023 -0400
+
+    Merge branch 'backend' into pre-master
+
+commit 2a4b3f2beb115bf5c37f230143e0593895fd49ea
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:42:20 2023 -0400
+
+    test
+
+commit 004b227f577e6dd6c6d601a735f6960306e8b740
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:24:57 2023 -0400
+
+    Restored files after bad merge
+
+commit 715415ac91fd10a69da1c2cdb39ffd68e63c5ca3
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:17:45 2023 -0400
+
+    Removed unnecessary files from backend
+
+commit 41ad736bc410f11897c7b5863723657c6516cf75
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 18:19:16 2023 -0400
+
+    Initial commit for backend
+
+commit 460c93aa8fd16ae0a46b14df180317c312d71c1e
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 14:09:12 2023 -0400
+
+    Updated Read me file
+
+commit b3d6b522804ea8928800dde35690b1e041ccfcc4
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 12:51:04 2023 -0400
+
+    Updated ReadMe File
+
+commit 976568aa27e61330665a2cfbc4e40b68a2d2dbaa
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 12:23:37 2023 -0400
+
+    Created branches, readme files and folders
+
+commit 89255228a5a1536cf46ae7856a9c463a55395e70
+Author: Barbara Monteiro Carvalho <bam426@lehigh.edu>
+Date:   Thu Oct 5 18:30:31 2023 +0000
+
+    Initial commit
