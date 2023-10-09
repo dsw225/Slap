@@ -1,0 +1,65 @@
+commit 1d8f754323b20b4e4ce9244df1abdfb39515902d
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 22:08:09 2023 -0400
+    Fix README? x2
+commit 8a97e4f21497193f9b1aa5684592546c6f808565
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 22:07:09 2023 -0400
+    Fix README?
+commit b7401bdabf810b8de41efab776474bdf8088470a
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:21:10 2023 -0400
+    Fixing README/ adding boards x2
+commit c28e5602899f9fc2a0058f8824d311bd81f45712
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:16:50 2023 -0400
+    Fixing README/ adding boards
+commit 746fdc7aac9352dd46952bf394bb9b152ace495d
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:13:51 2023 -0400
+    Updated README.md for designs boards
+commit 8afa2023a1fbfe8fa46d0dfd6084fa2c7e29ae85
+Author: Dan Warnick <danw@Dans-MacBook-Pro.local>
+Date:   Sun Oct 8 21:08:42 2023 -0400
+    Updated README.md for designs boards
+commit c3791bc6e5f39aebdb515927ed4f44b94e500139
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:55:48 2023 -0400
+    Initial commit for web
+commit 6b484d4882e6d55c980dfc4b0f77923f44342ee4
+Merge: 004b227 2a4b3f2
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:42:40 2023 -0400
+    Merge branch 'backend' into pre-master
+commit 2a4b3f2beb115bf5c37f230143e0593895fd49ea
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:42:20 2023 -0400
+    test
+commit 004b227f577e6dd6c6d601a735f6960306e8b740
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:24:57 2023 -0400
+    Restored files after bad merge
+commit 715415ac91fd10a69da1c2cdb39ffd68e63c5ca3
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 19:17:45 2023 -0400
+    Removed unnecessary files from backend
+commit 41ad736bc410f11897c7b5863723657c6516cf75
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 18:19:16 2023 -0400
+    Initial commit for backend
+commit 460c93aa8fd16ae0a46b14df180317c312d71c1e
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 14:09:12 2023 -0400
+    Updated Read me file
+commit b3d6b522804ea8928800dde35690b1e041ccfcc4
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 12:51:04 2023 -0400
+    Updated ReadMe File
+commit 976568aa27e61330665a2cfbc4e40b68a2d2dbaa
+Author: bmcbarbara <bam426@lehigh.edu>
+Date:   Sun Oct 8 12:23:37 2023 -0400
+    Created branches, readme files and folders
+commit 89255228a5a1536cf46ae7856a9c463a55395e70
+Author: Barbara Monteiro Carvalho <bam426@lehigh.edu>
+Date:   Thu Oct 5 18:30:31 2023 +0000
+    Initial commit
