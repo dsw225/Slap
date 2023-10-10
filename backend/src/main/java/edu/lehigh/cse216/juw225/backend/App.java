@@ -34,13 +34,8 @@ public class App {
         //     with IDs starting over from 0.
         final DataStore dataStore = new DataStore();
 
-<<<<<<< HEAD
-        // Set up the location for serving static files
-        Spark.staticFileLocation("/web");
-=======
         // Set the port on which to listen for requests from the environment
         Spark.port(getIntFromEnv("PORT", DEFAULT_PORT_SPARK));
->>>>>>> backend
 
         // Set up the location for serving static files.  If the STATIC_LOCATION
         // environment variable is set, we will serve from it.  Otherwise, serve
@@ -51,11 +46,7 @@ public class App {
         } else {
             Spark.staticFiles.externalLocation(static_location_override);
         }
-<<<<<<< HEAD
             
-=======
-
->>>>>>> backend
         // Set up a route for serving the main page
         Spark.get("/", (req, res) -> {
             res.redirect("/index.html");
