@@ -32,7 +32,6 @@ public class App {
         // NB: every time we shut down the server, we will lose all data, and 
         //     every time we start the server, we'll have an empty dataStore,
         //     with IDs starting over from 0.
-        final DataStore dataStore = new DataStore();
 
         // Set the port on which to listen for requests from the environment
         Spark.port(getIntFromEnv("PORT", DEFAULT_PORT_SPARK));
@@ -46,7 +45,14 @@ public class App {
         } else {
             Spark.staticFiles.externalLocation(static_location_override);
         }
-            
+
+        if ("True".equalsIgnoreCase(System.getenv("CORS_ENABLED"))) {
+            final String acceptCrossOriginRequestsFrom = "*";
+            final String acceptedCrossOriginRoutes = "GET,PUT,POST,DELETE,OPTIONS";
+            final String supportedRequestHeaders = "Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin";
+            enableCORS(acceptCrossOriginRequestsFrom, acceptedCrossOriginRoutes, supportedRequestHeaders);
+        }
+
         // Set up a route for serving the main page
         Spark.get("/", (req, res) -> {
             res.redirect("/index.html");
@@ -61,7 +67,7 @@ public class App {
             // ensure status 200 OK, with a MIME type of JSON
             response.status(200);
             response.type("application/json");
-            return gson.toJson(new StructuredResponse("ok", null, dataStore.readAll()));
+            return gson.toJson(new StructuredResponse("ok", null, db.selectAll()));
         });
 
         // GET route that returns everything for a single row in the DataStore.
@@ -75,7 +81,7 @@ public class App {
             // ensure status 200 OK, with a MIME type of JSON
             response.status(200);
             response.type("application/json");
-            DataRow data = dataStore.readOne(idx);
+            DataRow data = db.selectOne(idx);
             if (data == null) {
                 return gson.toJson(new StructuredResponse("error", idx + " not found", null));
             } else {
@@ -97,7 +103,7 @@ public class App {
             response.status(200);
             response.type("application/json");
             // NB: createEntry checks for null title and message
-            int newId = dataStore.createEntry(req.mTitle, req.mMessage);
+            int newId = db.insertRow(req.mTitle, req.mMessage);
             if (newId == -1) {
                 return gson.toJson(new StructuredResponse("error", "error performing insertion", null));
             } else {
@@ -115,8 +121,8 @@ public class App {
             // ensure status 200 OK, with a MIME type of JSON
             response.status(200);
             response.type("application/json");
-            DataRow result = dataStore.updateOne(idx, req.mTitle, req.mMessage);
-            if (result == null) {
+            int result = db.updateOne(idx, req.mMessage);
+            if (result == -1) {
                 return gson.toJson(new StructuredResponse("error", "unable to update row " + idx, null));
             } else {
                 return gson.toJson(new StructuredResponse("ok", null, result));
@@ -132,8 +138,8 @@ public class App {
             response.type("application/json");
             // NB: we won't concern ourselves too much with the quality of the 
             //     message sent on a successful delete
-            boolean result = dataStore.deleteOne(idx);
-            if (!result) {
+            int result = db.deleteRow(idx);
+            if (result == -1) {
                 return gson.toJson(new StructuredResponse("error", "unable to delete row " + idx, null));
             } else {
                 return gson.toJson(new StructuredResponse("ok", null, null));
@@ -156,5 +162,39 @@ public class App {
             return Integer.parseInt(processBuilder.environment().get(envar));
         }
         return defaultVal;
+    }
+
+    /**
+     * Set up CORS headers for the OPTIONS verb, and for every response that the
+     * server sends.  This only needs to be called once.
+     * 
+     * @param origin The server that is allowed to send requests to this server
+     * @param methods The allowed HTTP verbs from the above origin
+     * @param headers The headers that can be sent with a request from the above
+     *                origin
+     */
+    private static void enableCORS(String origin, String methods, String headers) {
+        // Create an OPTIONS route that reports the allowed CORS headers and methods
+        Spark.options("/*", (request, response) -> {
+            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+            }
+            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+            }
+            return "OK";
+        });
+
+        // 'before' is a decorator, which will run before any 
+        // get/post/put/delete.  In our case, it will put three extra CORS
+        // headers into the response
+        Spark.before((request, response) -> {
+            response.header("Access-Control-Allow-Origin", origin);
+            response.header("Access-Control-Request-Method", methods);
+            response.header("Access-Control-Allow-Headers", headers);
+        });
+        
     }
 }

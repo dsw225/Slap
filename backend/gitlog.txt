@@ -1,0 +1,18 @@
+Titus@LaptopTitus MINGW64 /c/ProjectStuff/Team Slap/cse216-2023fa-team-10/backend (backend)
+$ git log
+commit e1fe33ecaa8b53bd443feacd3746794c0ed1d341 (HEAD -> backend, origin/backend)
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 21:57:06 2023 -0400
+
+    Added double spaces
+
+commit 84682aeb1c70d63ef782afc8e9c465ee6bf23497
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 21:17:04 2023 -0400
+
+    Swapped README.md contents
+
+commit e0aeecbcadc9faf4c4c73ab0e959b705aed47d6c
+Author: Titus Whang <juw225@lehigh.edu>
+Date:   Sun Oct 8 20:53:50 2023 -0400
+:
